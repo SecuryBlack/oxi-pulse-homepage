@@ -1,9 +1,5 @@
 name = "oxi-pulse-homepage"
 compatibility_date = "2025-09-27"
-
-[build]
-command = "npm run build"
-
 compatibility_flags = ["nodejs_compat"]
 
 [observability]
