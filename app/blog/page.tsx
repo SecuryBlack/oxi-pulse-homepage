@@ -5,6 +5,8 @@ import { Layout } from "@/components/layout";
 import { Badge } from "@/components/ui/Badge";
 import { getAllPosts, formatDate } from "@/lib/blog";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Blog",
   description: "Articles and updates from the OxiPulse team.",

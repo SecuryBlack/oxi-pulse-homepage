@@ -8,6 +8,8 @@ import { CodeBlock } from "@/components/ui/CodeBlock";
 import { Callout } from "@/components/ui/Callout";
 import { getAllPosts, getPostBySlug, formatDate } from "@/lib/blog";
 
+export const dynamic = "force-static";
+
 export async function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
 }
