@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { docsNav } from "@/lib/docs-nav";
+import { SearchButton } from "@/components/ui/Search";
 
 export function DocsSidebar({ className = "" }: { className?: string }) {
   const pathname = usePathname();
 
   return (
     <nav className={`flex flex-col gap-6 ${className}`}>
+      <SearchButton />
       {docsNav.map((group) => (
         <div key={group.label}>
           <p className="text-xs font-semibold text-[var(--color-text)] uppercase tracking-widest mb-2 px-3">

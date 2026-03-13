@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Github, Activity } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { SearchButton } from "@/components/ui/Search";
 
 const navLinks = [
   { label: "Docs",      href: "/docs" },
   { label: "Install",   href: "/install" },
   { label: "Changelog", href: "/changelog" },
+  { label: "Blog",      href: "/blog" },
+  { label: "Community", href: "/community" },
 ];
 
 export function Navbar() {
@@ -52,6 +55,11 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
+        </div>
+
+        {/* Desktop search */}
+        <div className="hidden lg:block w-48">
+          <SearchButton />
         </div>
 
         {/* Desktop CTAs */}

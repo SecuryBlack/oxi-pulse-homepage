@@ -70,8 +70,8 @@
 
 ## FASE 6 — Changelog (`/changelog`)
 
-- [ ] **6.1** Página de releases con formato MDX o fetch desde GitHub API
-- [ ] **6.2** Estilo tipo timeline con versiones y fechas
+- [x] **6.1** Datos de releases en `lib/changelog.ts` (fácil de actualizar)
+- [x] **6.2** Timeline visual con versiones, badges, secciones Added/Fixed/Changed
 
 ---
 
@@ -115,9 +115,9 @@ Vercel genera los DNS records a apuntar en tu registrar.
 
 ## FASE 8 — Fase 2 (post-lanzamiento)
 
-- [ ] **8.1** `/blog` — sistema de posts con MDX
-- [ ] **8.2** `/community` — GitHub, contribuidores
-- [ ] **8.3** Búsqueda en docs (Algolia o Pagefind)
+- [x] **8.1** `/blog` — sistema MDX con listado + posts individuales con next-mdx-remote
+- [x] **8.2** `/community` — GitHub, issues, PR, licencia, nota sobre SecuryBlack
+- [x] **8.3** Búsqueda con Pagefind — modal Cmd+K, indexa 16 páginas automáticamente en build
 - [ ] **8.4** Internacionalización (ES/EN) si se requiere
 
 ---
