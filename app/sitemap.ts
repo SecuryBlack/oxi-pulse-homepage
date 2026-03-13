@@ -1,7 +1,5 @@
 import type { MetadataRoute } from "next";
 
-export const dynamic = "force-static";
-
 const BASE_URL = "https://oxipulse.dev";
 
 export default function sitemap(): MetadataRoute.Sitemap {
