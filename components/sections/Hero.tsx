@@ -46,11 +46,19 @@ export function Hero() {
 
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
         {/* Top badge */}
-        <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
+        <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0} className="flex flex-col items-center gap-2">
           <Badge variant="primary" dot>
             <Activity size={11} />
             Open Source · Apache 2.0
           </Badge>
+          <a
+            href="https://securyblack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors tracking-wide"
+          >
+            by <span className="text-[var(--color-muted-2,#9a9a9a)] hover:text-[var(--color-primary)] transition-colors font-medium">SecuryBlack</span>
+          </a>
         </motion.div>
 
         {/* Headline */}

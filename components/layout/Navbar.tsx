@@ -35,14 +35,24 @@ export function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <span className="text-[var(--color-primary)] group-hover:opacity-80 transition-opacity">
-            <Activity size={22} strokeWidth={2.5} />
-          </span>
-          <span className="font-semibold text-[var(--color-text)] text-lg tracking-tight">
-            OxiPulse
-          </span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <span className="text-[var(--color-primary)] group-hover:opacity-80 transition-opacity">
+              <Activity size={22} strokeWidth={2.5} />
+            </span>
+            <span className="font-semibold text-[var(--color-text)] text-lg tracking-tight">
+              OxiPulse
+            </span>
+          </Link>
+          <a
+            href="https://securyblack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-1 text-xs text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors border-l border-[var(--color-border)] pl-3"
+          >
+            by SecuryBlack
+          </a>
+        </div>
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-1">

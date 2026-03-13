@@ -47,6 +47,20 @@ export function Footer() {
               <Github size={15} />
               securyblack/oxi-pulse
             </a>
+            <div className="mt-5 pt-4 border-t border-[var(--color-border)]">
+              <p className="text-xs text-[var(--color-muted)] mb-1">Made by</p>
+              <a
+                href="https://securyblack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
+              >
+                SecuryBlack →
+              </a>
+              <p className="text-xs text-[var(--color-muted)] mt-1 leading-relaxed">
+                Cybersecurity tools for the modern web.
+              </p>
+            </div>
           </div>
 
           {/* Link groups */}
@@ -79,17 +93,14 @@ export function Footer() {
           <p className="text-xs text-[var(--color-muted)]">
             © {new Date().getFullYear()} OxiPulse. Licensed under Apache 2.0.
           </p>
-          <p className="text-xs text-[var(--color-muted)]">
-            An open-source project by{" "}
-            <a
-              href="https://securyblack.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--color-muted-2)] hover:text-[var(--color-text)] transition-colors"
-            >
-              SecuryBlack
-            </a>
-          </p>
+          <a
+            href="https://securyblack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[var(--color-muted)] hover:text-[var(--color-primary)] transition-colors"
+          >
+            OxiPulse by SecuryBlack
+          </a>
         </div>
       </div>
     </footer>
