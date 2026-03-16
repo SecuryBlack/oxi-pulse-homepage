@@ -62,10 +62,10 @@ const item = {
 
 export function Features() {
   return (
-    <section className="py-24 px-4">
+    <section className="py-16 md:py-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-sm font-semibold text-[var(--color-primary)] uppercase tracking-widest mb-3">
             Why OxiPulse
           </p>

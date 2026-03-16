@@ -33,7 +33,7 @@ export function Tabs({
 export function TabsList({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <div
-      className={`flex gap-1 p-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-lg)] w-fit ${className}`}
+      className={`flex gap-1 p-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-lg)] w-fit max-w-full overflow-x-auto ${className}`}
     >
       {children}
     </div>

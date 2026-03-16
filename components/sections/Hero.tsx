@@ -44,7 +44,7 @@ export function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
+      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-4 sm:gap-6">
         {/* Top badge */}
         <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0} className="flex flex-col items-center gap-2">
           <Badge variant="primary" dot>
@@ -67,7 +67,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           custom={0.1}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
+          className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
         >
           Server{" "}
           <span className="text-gradient-primary">vital signs.</span>
