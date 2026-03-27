@@ -39,7 +39,7 @@ const linuxSteps = [
           and sets up a systemd service.
         </p>
         <CodeBlock
-          code={`curl -fsSL https://install.oxipulse.dev | bash`}
+          code={`curl -fsSL https://install.oxipulse.dev | sudo bash`}
           language="bash"
           filename="Terminal"
         />
@@ -59,7 +59,7 @@ const linuxSteps = [
 Enter your OxiPulse token: op_live_xxxxxxxxxxxx
 
 # Or non-interactive (CI/CD)
-OXIPULSE_TOKEN=op_live_xxxxxxxxxxxx curl -fsSL https://install.oxipulse.dev | bash`}
+OXIPULSE_TOKEN=op_live_xxxxxxxxxxxx curl -fsSL https://install.oxipulse.dev | sudo bash`}
           language="bash"
           filename="Token setup"
         />

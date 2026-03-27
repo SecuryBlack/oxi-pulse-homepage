@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/Badge";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { PulseAnimation } from "./PulseAnimation";
 
-const INSTALL_CMD = `curl -fsSL https://install.oxipulse.dev | bash`;
+const INSTALL_CMD = `curl -fsSL https://install.oxipulse.dev | sudo bash`;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },

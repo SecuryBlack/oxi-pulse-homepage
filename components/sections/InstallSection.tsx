@@ -16,7 +16,7 @@ const linuxSteps = [
   {
     step: "1",
     title: "Install with one command",
-    code: `curl -fsSL https://install.oxipulse.dev | bash`,
+    code: `curl -fsSL https://install.oxipulse.dev | sudo bash`,
     language: "bash",
   },
   {

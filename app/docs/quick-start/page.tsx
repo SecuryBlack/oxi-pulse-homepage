@@ -32,7 +32,7 @@ export default function QuickStart() {
       <h2>Step 2 — Install the agent</h2>
       <h3>Linux / macOS</h3>
       <CodeBlock
-        code={`curl -fsSL https://install.oxipulse.dev | bash`}
+        code={`curl -fsSL https://install.oxipulse.dev | sudo bash`}
         language="bash"
         filename="Terminal"
       />
