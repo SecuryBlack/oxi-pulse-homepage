@@ -55,11 +55,7 @@ const linuxSteps = [
           to skip the prompt.
         </p>
         <CodeBlock
-          code={`# Interactive
-Enter your OxiPulse token: op_live_xxxxxxxxxxxx
-
-# Or non-interactive (CI/CD)
-OXIPULSE_TOKEN=op_live_xxxxxxxxxxxx curl -fsSL https://install.oxipulse.dev | sudo bash`}
+          code={`Enter your OxiPulse token: op_live_xxxxxxxxxxxx`}
           language="bash"
           filename="Token setup"
         />
@@ -125,11 +121,7 @@ const windowsSteps = [
     children: (
       <>
         <CodeBlock
-          code={`# Interactive
-Enter your OxiPulse token: op_live_xxxxxxxxxxxx
-
-# Or non-interactive
-$env:OXIPULSE_TOKEN="op_live_xxxxxxxxxxxx"; irm https://install.oxipulse.dev/windows | iex`}
+          code={`Enter your OxiPulse token: op_live_xxxxxxxxxxxx`}
           language="powershell"
           filename="Token setup"
         />
