@@ -13,6 +13,20 @@ export interface ChangelogEntry {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "0.1.10",
+    date: "2026-04-06",
+    type: "patch",
+    summary: "Update checks now happen 5 minutes after startup instead of 24 hours.",
+    sections: [
+      {
+        label: "Fixed",
+        items: [
+          "The auto-updater previously waited a full 24 hours before its first check, so restarting the agent never triggered a prompt update pickup. The agent now checks for a new release 5 minutes after startup and then every 24 hours, meaning a restart is enough to pull a pending update within minutes.",
+        ],
+      },
+    ],
+  },
+  {
     version: "0.1.9",
     date: "2026-04-06",
     type: "minor",
