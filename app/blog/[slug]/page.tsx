@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { Layout } from "@/components/layout";
 import { Badge } from "@/components/ui/Badge";
-import { CodeBlock } from "@/components/ui/CodeBlock";
-import { Callout } from "@/components/ui/Callout";
 import { getAllPosts, getPostBySlug, formatDate } from "@/lib/blog";
+import { renderMarkdown } from "@/lib/markdown";
 
 export const dynamic = "force-static";
 
@@ -27,23 +25,6 @@ export async function generateMetadata({
   };
 }
 
-const mdxComponents = {
-  pre: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-  code: ({ className, children }: { className?: string; children?: React.ReactNode }) => {
-    const language = className?.replace("language-", "") ?? "bash";
-    const code = String(children ?? "").replace(/\n$/, "");
-    if (code.includes("\n")) {
-      return <CodeBlock code={code} language={language} />;
-    }
-    return (
-      <code className="font-mono text-[var(--color-primary)] bg-[var(--color-surface-2)] px-1.5 py-0.5 rounded-sm text-sm">
-        {children}
-      </code>
-    );
-  },
-  Callout,
-};
-
 export default async function BlogPost({
   params,
 }: {
@@ -51,6 +32,7 @@ export default async function BlogPost({
 }) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
+  const html = renderMarkdown(post.content);
 
   return (
     <Layout>
@@ -78,7 +60,7 @@ export default async function BlogPost({
           <p className="text-[var(--color-muted)]">By {post.author}</p>
         </header>
 
-        {/* MDX content */}
+        {/* Content */}
         <article
           className={[
             "max-w-none",
@@ -91,11 +73,16 @@ export default async function BlogPost({
             "[&_a]:text-[var(--color-primary)] [&_a]:underline-offset-4 [&_a:hover]:underline",
             "[&_strong]:text-[var(--color-text)] [&_strong]:font-semibold",
             "[&_hr]:border-[var(--color-border)] [&_hr]:my-8",
-            "[&_pre]:mb-4 [&_pre]:rounded-[var(--radius-lg)]",
+            "[&_pre]:mb-4 [&_pre]:rounded-[var(--radius-lg)] [&_pre]:overflow-x-auto [&_pre]:p-4 [&_pre]:bg-[#0A0A0A] [&_pre]:border [&_pre]:border-[var(--color-border)] [&_pre]:text-sm [&_pre]:leading-relaxed",
+            "[&_code]:font-mono [&_code]:text-[var(--color-text)]",
+            "[&_:not(pre)>code]:text-[var(--color-primary)] [&_:not(pre)>code]:bg-[var(--color-surface-2)] [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded-sm [&_:not(pre)>code]:text-sm",
+            "[&_table]:w-full [&_table]:border-collapse [&_table]:mb-6 [&_table]:text-sm",
+            "[&_th]:border [&_th]:border-[var(--color-border)] [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold [&_th]:text-[var(--color-text)] [&_th]:bg-[var(--color-surface-2)]",
+            "[&_td]:border [&_td]:border-[var(--color-border)] [&_td]:px-3 [&_td]:py-2 [&_td]:text-[var(--color-muted)]",
+            "[&_blockquote]:border-l-2 [&_blockquote]:border-[var(--color-primary)] [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-[var(--color-muted)] [&_blockquote]:mb-4",
           ].join(" ")}
-        >
-          <MDXRemote source={post.content} components={mdxComponents} />
-        </article>
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </div>
     </Layout>
   );
