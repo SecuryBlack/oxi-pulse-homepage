@@ -22,11 +22,11 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-surface)] mt-32">
+    <footer className="border-t border-[var(--color-border)] bg-[var(--color-surface)] mt-16 md:mt-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}
-          <div className="col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-4 group w-fit">
               <span className="text-[var(--color-primary)] group-hover:opacity-80 transition-opacity">
                 <Activity size={20} strokeWidth={2.5} />

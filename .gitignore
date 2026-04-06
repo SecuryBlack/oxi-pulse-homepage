@@ -36,6 +36,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# claude code local settings and memory
+.claude/
+memory/
+
+# cloudflare / opennext build output
+.open-next/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -84,7 +84,7 @@ auto_update = false`}
       </p>
       <CodeBlock
         code={`# Linux
-OXIPULSE_VERSION=v0.1.0 curl -fsSL https://install.oxipulse.dev | bash
+OXIPULSE_VERSION=v0.1.0 curl -fsSL https://install.oxipulse.dev | sudo bash
 
 # Windows
 $env:OXIPULSE_VERSION="v0.1.0"; irm https://install.oxipulse.dev/windows | iex`}

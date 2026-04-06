@@ -34,10 +34,10 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-24 px-4 border-y border-[var(--color-border)] bg-[var(--color-surface)]/40">
+    <section className="py-16 md:py-24 px-4 border-y border-[var(--color-border)] bg-[var(--color-surface)]/40">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-sm font-semibold text-[var(--color-primary)] uppercase tracking-widest mb-3">
             Architecture
           </p>
@@ -56,7 +56,7 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0"
+          className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0"
         >
           {/* Server box */}
           <FlowNode
@@ -94,7 +94,7 @@ export function HowItWorks() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center"
+          className="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center"
         >
           {[
             {
@@ -163,19 +163,19 @@ function FlowNode({
 
 function Connector({ label }: { label?: string }) {
   return (
-    <div className="flex flex-col items-center gap-1 px-2 sm:px-4">
+    <div className="flex flex-col items-center gap-1 px-2 md:px-4">
       {label && (
-        <span className="text-xs text-[var(--color-muted)] font-mono hidden sm:block mb-1">
+        <span className="text-xs text-[var(--color-muted)] font-mono hidden md:block mb-1">
           {label}
         </span>
       )}
       {/* horizontal on desktop */}
-      <div className="hidden sm:flex items-center gap-1">
+      <div className="hidden md:flex items-center gap-1">
         <div className="w-8 h-px bg-[var(--color-border)]" />
         <ArrowRight size={14} className="text-[var(--color-muted)]" />
       </div>
       {/* vertical on mobile */}
-      <div className="flex sm:hidden flex-col items-center gap-1">
+      <div className="flex md:hidden flex-col items-center gap-1">
         <div className="w-px h-6 bg-[var(--color-border)]" />
         <ArrowRight
           size={14}

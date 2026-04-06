@@ -7,14 +7,14 @@ import { PulseAnimation } from "./PulseAnimation";
 
 export function CTASection() {
   return (
-    <section className="py-24 px-4">
+    <section className="py-16 md:py-24 px-4">
       <div className="max-w-3xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-xl)] p-12 overflow-hidden"
+          className="relative bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-xl)] p-6 sm:p-12 overflow-hidden"
         >
           {/* Background glow */}
           <div

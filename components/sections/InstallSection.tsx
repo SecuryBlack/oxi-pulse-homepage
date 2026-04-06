@@ -16,7 +16,7 @@ const linuxSteps = [
   {
     step: "1",
     title: "Install with one command",
-    code: `curl -fsSL https://install.oxipulse.dev | bash`,
+    code: `curl -fsSL https://install.oxipulse.dev | sudo bash`,
     language: "bash",
   },
   {
@@ -63,10 +63,10 @@ export function InstallSection() {
   const steps = activeTab === "linux" ? linuxSteps : windowsSteps;
 
   return (
-    <section className="py-24 px-4" id="install">
+    <section className="py-16 md:py-24 px-4" id="install">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <p className="text-sm font-semibold text-[var(--color-primary)] uppercase tracking-widest mb-3">
             Installation
           </p>
@@ -79,7 +79,7 @@ export function InstallSection() {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-1 p-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-lg)] mb-8 w-fit mx-auto">
+        <div className="flex gap-1 p-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-lg)] mb-8 w-fit max-w-full overflow-x-auto mx-auto">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const active = activeTab === tab.id;
