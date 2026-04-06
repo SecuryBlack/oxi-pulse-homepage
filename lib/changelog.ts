@@ -13,6 +13,79 @@ export interface ChangelogEntry {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "0.1.9",
+    date: "2026-04-06",
+    type: "minor",
+    summary: "Opt-in usage telemetry and remote configuration.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "Opt-in usage telemetry — the agent can now send anonymous usage pings (version, OS, arch, uptime, metrics exported, buffer occupancy) to SecuryBlack once every 24 hours. Disabled by default for all installations, including agents upgrading from previous versions.",
+          "Remote configuration fetch — on startup the agent calls the SecuryBlack API with its token to retrieve server-side settings. This allows telemetry to be enabled or disabled per agent from the dashboard without touching the local config file.",
+          "New config key `telemetry_enabled` (absent → defers to server, `true` → always on, `false` → always off) and corresponding `OXIPULSE_TELEMETRY` environment variable override.",
+          "New optional config key `api_url` and `OXIPULSE_API_URL` environment variable for self-hosted or staging deployments.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.8",
+    date: "2026-04-05",
+    type: "patch",
+    summary: "Report agent version as an OTLP resource attribute and update TLS dependencies.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "Agent version is now attached as the `service.version` resource attribute in every OTLP export, allowing the ingestor to track which version of OxiPulse each agent is running.",
+        ],
+      },
+      {
+        label: "Changed",
+        items: [
+          "Updated `rustls-webpki` to the latest patch release (security maintenance).",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.7",
+    date: "2026-03-27",
+    type: "patch",
+    summary: "Dependency lockfile cleanup following 0.1.6.",
+    sections: [
+      {
+        label: "Changed",
+        items: [
+          "Updated Cargo.lock to fully reflect the dependency changes shipped in 0.1.6. No functional changes.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.6",
+    date: "2026-03-27",
+    type: "patch",
+    summary: "Connectivity, installer fixes and a security dependency update.",
+    sections: [
+      {
+        label: "Fixed",
+        items: [
+          "Reachability check now tries IPv4 addresses before IPv6, preventing long stalls when the ingestor host has no IPv6 listener.",
+          "Linux install script reads TTY input via `/dev/tty` so the installer works correctly when executed through a pipe (`curl … | bash`).",
+          "Windows install script uses the `PROCESSOR_ARCHITECTURE` environment variable for architecture detection instead of .NET `RuntimeInformation`, improving compatibility across environments.",
+        ],
+      },
+      {
+        label: "Changed",
+        items: [
+          "Updated `tar` dependency to the latest patch release (security maintenance).",
+        ],
+      },
+    ],
+  },
+  {
     version: "0.1.5",
     date: "2026-03-19",
     type: "patch",
