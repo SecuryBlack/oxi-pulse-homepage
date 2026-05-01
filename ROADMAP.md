@@ -2,7 +2,7 @@
 
 > **Stack:** Next.js 15 · Tailwind CSS v4 · MDX · Framer Motion · Shiki
 > **Dominio:** oxipulse.dev
-> **Paleta:** `#33E1BF` (primary) · `#0E0E0E` (bg) · `#F0F0F0` (text)
+> **Paleta:** `#3B82F6` (primary) · `#0E0E0E` (bg) · `#F0F0F0` (text)
 
 ---
 
