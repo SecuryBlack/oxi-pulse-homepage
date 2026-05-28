@@ -13,6 +13,190 @@ export interface ChangelogEntry {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "0.3.5",
+    date: "2026-05-28",
+    type: "patch",
+    summary: "Add Cloudflare DNS as a default fallback latency target for instant out-of-the-box monitoring.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "Cloudflare DNS (1.1.1.1:53) is now automatically included as a default latency target when `latency_targets` is empty. This provides immediate, zero-config internet connection latency monitoring alongside the ingestor endpoint.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.3.4",
+    date: "2026-05-28",
+    type: "minor",
+    summary: "Dynamic network latency metrics via concurrent, non-privileged TCP pings.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "Network latency metric (`system.network.latency`) with `target` and `status` attributes.",
+          "Asynchronous concurrent TCP ping mechanism to measure latencies of multiple targets in parallel without blocking the main telemetry loop.",
+          "New `latency_targets` configuration key (and `OXIPULSE_LATENCY_TARGETS` environment variable) to define a custom list of hosts/ports to monitor.",
+          "Automatic fallback to measure latency to the configured OTLP ingestor endpoint if no custom targets are specified.",
+        ],
+      },
+      {
+        label: "Fixed",
+        items: [
+          "Robust logging setup on Windows — automatically falls back to console logging (stdout) if the daily rolling log directory (`C:\\ProgramData\\oxipulse`) lacks write permissions or if `OXIPULSE_LOG_STDOUT` is enabled, eliminating start panics.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.3.3",
+    date: "2026-05-20",
+    type: "patch",
+    summary: "Use short device names for Linux disks.",
+    sections: [
+      {
+        label: "Fixed",
+        items: [
+          "Linux disk monitoring now uses short, clean device names instead of absolute sysfs paths.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.3.2",
+    date: "2026-05-14",
+    type: "patch",
+    summary: "Improve disk labeling for Windows and Linux mount points.",
+    sections: [
+      {
+        label: "Fixed",
+        items: [
+          "Uses the mount point as the primary disk label (e.g., `C:` on Windows, `/` on Linux) to make individual disk metrics clear in the dashboard.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.3.1",
+    date: "2026-05-13",
+    type: "patch",
+    summary: "Disk label fallback improvement on Linux.",
+    sections: [
+      {
+        label: "Fixed",
+        items: [
+          "Fallback to using mount points as the disk name when the standard disk label attribute is empty on Linux filesystems.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.3.0",
+    date: "2026-05-13",
+    type: "minor",
+    summary: "Granular per-disk telemetries utilizing OTel semantic conventions.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "Per-disk metric reporting attaching the OTel standard `disk.name` attribute on disk used and total indicators, enabling multiple disk visualization.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.2.0",
+    date: "2026-05-11",
+    type: "minor",
+    summary: "Telemetry pings now report agent type.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "Attaches the `agent_type` field to the daily opt-in usage telemetry pings to separate different agent kinds.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.15",
+    date: "2026-05-11",
+    type: "patch",
+    summary: "Add local version flag for easy agent discovery.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "Introduced `--version` and `-V` CLI flags to allow developers and scripts to easily retrieve the installed agent version locally.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.14",
+    date: "2026-05-11",
+    type: "minor",
+    summary: "Real-time network throughput instead of raw total counters.",
+    sections: [
+      {
+        label: "Changed",
+        items: [
+          "Modified network metrics to calculate and report real-time throughput in bytes per second (`net_bps_in` and `net_bps_out`) rather than aggregate raw totals.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.13",
+    date: "2026-05-09",
+    type: "patch",
+    summary: "Documentation cleanups and minor updates.",
+    sections: [
+      {
+        label: "Changed",
+        items: [
+          "Polished internal README guidelines, documentation files, and minor repository adjustments.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.12",
+    date: "2026-05-08",
+    type: "patch",
+    summary: "Typo corrections in changelog history.",
+    sections: [
+      {
+        label: "Fixed",
+        items: [
+          "Corrected minor version typos and adjusted dates in the OxiPulse changelog history.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.11",
+    date: "2026-05-08",
+    type: "minor",
+    summary: "Local agent mode for nexus-agent tunnel integration, and critical Windows fixes.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "New `local_agent` deployment mode in config to route OTLP payloads locally to the `nexus-agent` gRPC tunnel client.",
+        ],
+      },
+      {
+        label: "Fixed",
+        items: [
+          "Eliminated the `VCRUNTIME140.dll` dependency on Windows by statically linking the MSVC runtime inside release builds.",
+          "Windows installer now stops any running agent service before overwriting the executable, resolving locked file errors.",
+        ],
+      },
+    ],
+  },
+  {
     version: "0.1.10",
     date: "2026-04-06",
     type: "patch",
