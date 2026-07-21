@@ -1,0 +1,8 @@
+{
+  "name": "OxiPulse Homepage",
+  "description": "Sitio web y documentación de OxiPulse en Next.js",
+  "type": "next",
+  "role": "homepage",
+  "port": 3004,
+  "start": "npm run dev"
+}
