@@ -8,14 +8,24 @@ export const metadata: Metadata = {
 };
 
 const metrics = [
-  { name: "system.cpu.usage",        type: "Gauge",   unit: "%",    desc: "Overall CPU usage percentage across all cores" },
-  { name: "system.memory.used",      type: "Gauge",   unit: "bytes","desc": "RAM currently in use" },
-  { name: "system.memory.total",     type: "Gauge",   unit: "bytes","desc": "Total installed RAM" },
-  { name: "system.disk.used",        type: "Gauge",   unit: "bytes","desc": "Disk space used on the root partition" },
-  { name: "system.disk.total",       type: "Gauge",   unit: "bytes","desc": "Total disk capacity of the root partition" },
-  { name: "system.network.bytes_in", type: "Counter", unit: "bytes","desc": "Total bytes received across all interfaces" },
-  { name: "system.network.bytes_out",type: "Counter", unit: "bytes","desc": "Total bytes sent across all interfaces" },
+  { name: "system.uptime",               type: "Gauge",   unit: "seconds", desc: "System uptime in seconds" },
+  { name: "system.cpu.count",             type: "Gauge",   unit: "cores",   desc: "Number of logical CPU cores" },
+  { name: "system.cpu.usage",             type: "Gauge",   unit: "%",       desc: "Overall CPU usage percentage across all cores" },
+  { name: "system.cpu.load_average.1m",   type: "Gauge",   unit: "1",       desc: "System load average over 1 minute (0 on Windows)" },
+  { name: "system.cpu.load_average.5m",   type: "Gauge",   unit: "1",       desc: "System load average over 5 minutes (0 on Windows)" },
+  { name: "system.cpu.load_average.15m",  type: "Gauge",   unit: "1",       desc: "System load average over 15 minutes (0 on Windows)" },
+  { name: "system.memory.used",           type: "Gauge",   unit: "bytes",   desc: "RAM currently in use" },
+  { name: "system.memory.total",          type: "Gauge",   unit: "bytes",   desc: "Total installed RAM" },
+  { name: "system.memory.swap.used",     type: "Gauge",   unit: "bytes",   desc: "Swap space currently in use" },
+  { name: "system.memory.swap.total",    type: "Gauge",   unit: "bytes",   desc: "Total Swap space capacity" },
+  { name: "system.disk.used",             type: "Gauge",   unit: "bytes",   desc: "Disk space used per partition (with disk.name attribute)" },
+  { name: "system.disk.total",            type: "Gauge",   unit: "bytes",   desc: "Total disk capacity per partition (with disk.name attribute)" },
+  { name: "system.network.receive",      type: "Gauge",   unit: "bytes/s", desc: "Real-time network receive throughput" },
+  { name: "system.network.transmit",     type: "Gauge",   unit: "bytes/s", desc: "Real-time network transmit throughput" },
+  { name: "system.network.latency",      type: "Gauge",   unit: "ms",      desc: "Network latency to specified targets via TCP ping" },
 ];
+
+
 
 export default function MetricsPage() {
   return (

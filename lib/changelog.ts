@@ -13,10 +13,27 @@ export interface ChangelogEntry {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "0.3.8",
+    date: "2026-07-28",
+    type: "patch",
+    summary: "Auto-write version in config.toml on startup and system load average metrics.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "System load average metrics (`system.cpu.load_average.1m`, `5m`, `15m`).",
+          "Automatic updating of version field in `config.toml` upon agent start.",
+          "System uptime (`system.uptime`), CPU logical core count (`system.cpu.count`), and Swap usage metrics.",
+        ],
+      },
+    ],
+  },
+  {
     version: "0.3.5",
     date: "2026-05-28",
     type: "patch",
     summary: "Add Cloudflare DNS as a default fallback latency target for instant out-of-the-box monitoring.",
+
     sections: [
       {
         label: "Added",
