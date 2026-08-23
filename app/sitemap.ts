@@ -16,6 +16,7 @@ const STATIC_ROUTES: Array<{
   { path: "/docs/metrics",         changeFrequency: "monthly", priority: 0.7  },
   { path: "/docs/offline-buffer",  changeFrequency: "monthly", priority: 0.7  },
   { path: "/docs/auto-update",     changeFrequency: "monthly", priority: 0.7  },
+  { path: "/docs/cli",             changeFrequency: "monthly", priority: 0.7  },
   { path: "/docs/contributing",    changeFrequency: "monthly", priority: 0.6  },
   { path: "/changelog",    changeFrequency: "weekly",  priority: 0.65 },
   { path: "/blog",         changeFrequency: "weekly",  priority: 0.65 },

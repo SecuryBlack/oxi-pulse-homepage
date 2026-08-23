@@ -13,6 +13,41 @@ export interface ChangelogEntry {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "0.3.10",
+    date: "2026-08-23",
+    type: "patch",
+    summary: "Consume sb-agent-core from crates.io instead of a git dependency.",
+    sections: [
+      {
+        label: "Changed",
+        items: [
+          "The shared `sb-agent-core` runtime is now pulled from crates.io as a versioned dependency instead of a git branch reference, matching normal Rust dependency practice.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.3.9",
+    date: "2026-08-23",
+    type: "minor",
+    summary: "Retrofitted onto sb-agent-core: shared config, logging, service wrapper, updater and a new local status socket + TUI.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "New local `status` and `top` CLI commands — `status` prints a JSON snapshot of the running agent (state, version, uptime, CPU/RAM/buffer details); `top` opens a live-refreshing terminal view of the same data. See the CLI & live status docs page.",
+          "Status socket (Unix socket / Windows named pipe) that Nexus Agent now reads directly to detect whether OxiPulse is running, instead of relying on process/PATH heuristics.",
+        ],
+      },
+      {
+        label: "Changed",
+        items: [
+          "Config loading, logging, the Windows Service wrapper, and the GitHub-Releases auto-updater now come from the shared `sb-agent-core` crate used by all SecuryBlack Rust agents, instead of duplicated per-agent code. No behavioral change for existing installs.",
+        ],
+      },
+    ],
+  },
+  {
     version: "0.3.8",
     date: "2026-07-28",
     type: "patch",

@@ -28,6 +28,7 @@ export const docsNav: NavGroup[] = [
       { title: "Metrics",        href: "/docs/metrics" },
       { title: "Offline buffer", href: "/docs/offline-buffer" },
       { title: "Auto-update",    href: "/docs/auto-update" },
+      { title: "CLI & live status", href: "/docs/cli" },
     ],
   },
   {
