@@ -13,6 +13,27 @@ export interface ChangelogEntry {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "0.3.11",
+    date: "2026-09-08",
+    type: "patch",
+    summary: "Remote update command intake, endpoint TLS normalization, and Windows Server 2019 installer compatibility.",
+    sections: [
+      {
+        label: "Added",
+        items: [
+          "Remote command intake support: added `update_now` handler enabling manual one-click updates triggered from the SecuryBlack App.",
+        ],
+      },
+      {
+        label: "Fixed",
+        items: [
+          "Endpoint scheme normalization: properly differentiate HTTP and HTTPS endpoints so TLS is only enabled when targeting secure endpoints.",
+          "PowerShell installer now explicitly forces TLS 1.2+ and sets execution policy bypass for compatibility with Windows Server 2019 and PowerShell 5.1.",
+        ],
+      },
+    ],
+  },
+  {
     version: "0.3.10",
     date: "2026-08-23",
     type: "patch",
