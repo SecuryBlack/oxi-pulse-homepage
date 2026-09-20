@@ -2,35 +2,33 @@
   "name": "oxi-pulse-homepage",
   "version": "0.1.0",
   "private": true,
+  "description": "Landing page oficial de oxi-pulse (SecuryBlack)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "build:cf": "npx @opennextjs/cloudflare build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint"
   },
   "dependencies": {
-    "framer-motion": "^12.36.0",
-    "gray-matter": "^4.0.3",
-    "lucide-react": "^0.577.0",
-    "next": "16.3.2",
-    "marked": "^15.0.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.477.0",
+    "motion": "^12.23.11",
+    "next": "^16.3.3",
     "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "shiki": "^4.0.2"
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@opennextjs/cloudflare": "^1.18.0",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "babel-plugin-react-compiler": "1.0.0",
+    "@tailwindcss/postcss": "^4.1.15",
+    "@types/node": "^20.14.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "pagefind": "^1.4.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.15",
+    "typescript": "^5.8.0"
   },
-  "license": "MIT"
+  "license": "Apache-2.0"
 }
