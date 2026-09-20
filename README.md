@@ -40,7 +40,7 @@ export const activeAgentConfig: AgentConfig = {
     accentTag: "emerald",
   },
   installCommands: [
-    { os: "Linux", cmd: "curl -fsSL https://install.securyblack.dev/mi-agente | sudo bash" }
+    { os: "Linux", cmd: "curl -fsSL https://install.mi-agente.dev | sudo bash" }
   ],
   stats: [ ... ],
   features: [ ... ],

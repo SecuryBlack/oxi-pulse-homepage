@@ -151,6 +151,12 @@ const FAVICONS = {
   <circle cx="9.5" cy="22.5" r="0.8" fill="#06B6D4" />
   <circle cx="22.5" cy="22.5" r="0.8" fill="#06B6D4" />
 </svg>`,
+  "cromo-forge": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="8" fill="#09090b" stroke="#6366F1" stroke-width="1.5" stroke-opacity="0.4" />
+  <path d="M16 4.5L5 10.5v11l11 6 11-6v-11L16 4.5z" fill="none" stroke="#6366F1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M16 16.5l11-6M16 16.5v11M16 16.5L5 10.5" fill="none" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="16" cy="16.5" r="2" fill="#A5B4FC" />
+</svg>`,
 };
 
 const normPreset = preset.toLowerCase().replace(/_/g, "-");

@@ -147,12 +147,12 @@ export const oxiPulseConfig: AgentConfig = {
   installCommands: [
     {
       os: "Linux",
-      cmd: "curl -fsSL https://install.securyblack.dev/oxi-pulse | sudo bash",
+      cmd: "curl -fsSL https://install.oxipulse.dev | sudo bash",
       badge: "Recomendado",
     },
     {
       os: "Windows",
-      cmd: "iwr -useb https://install.securyblack.dev/oxi-pulse.ps1 | iex",
+      cmd: "irm https://install.oxipulse.dev | iex",
     },
     {
       os: "Cargo",
@@ -279,12 +279,12 @@ export const ferroSentryConfig: AgentConfig = {
   installCommands: [
     {
       os: "Linux",
-      cmd: "curl -fsSL https://install.securyblack.dev/ferro-sentry | sudo bash",
+      cmd: "curl -fsSL https://install.ferrosentry.dev | sudo bash",
       badge: "Recomendado",
     },
     {
       os: "Windows",
-      cmd: "iwr -useb https://install.securyblack.dev/ferro-sentry.ps1 | iex",
+      cmd: "irm https://install.ferrosentry.dev | iex",
     },
     {
       os: "Cargo",
@@ -411,12 +411,12 @@ export const cupraFlowConfig: AgentConfig = {
   installCommands: [
     {
       os: "Linux",
-      cmd: "curl -fsSL https://install.securyblack.dev/cupra-flow | sudo bash",
+      cmd: "curl -fsSL https://install.cupraflow.dev | sudo bash",
       badge: "Recomendado",
     },
     {
       os: "Windows",
-      cmd: "iwr -useb https://install.securyblack.dev/cupra-flow.ps1 | iex",
+      cmd: "irm https://install.cupraflow.dev | iex",
     },
     {
       os: "Cargo",
@@ -527,7 +527,7 @@ export const cromoForgeConfig: AgentConfig = {
   binaryName: "cromoforge",
   productTitle: "CromoForge — Autonomous GitOps & Container Continuous Delivery",
   badge: "Rust Native · Open Source · Apache 2.0",
-  version: "v0.1.0",
+  version: "v0.1.4",
   tagline: "Zero-Downtime GitOps & Container Deployments on Any Server",
   description:
     "Despliegues atómicos y sincronización GitOps directamente en tus servidores. Pull inteligente de imágenes Docker/Podman, verificaciones de salud previas al switch, rollback instantáneo y TUI interactiva.",
@@ -543,12 +543,12 @@ export const cromoForgeConfig: AgentConfig = {
   installCommands: [
     {
       os: "Linux",
-      cmd: "curl -fsSL https://install.securyblack.dev/cromo-forge | sudo bash",
+      cmd: "curl -fsSL https://install.cromoforge.dev | sudo bash",
       badge: "Recomendado",
     },
     {
       os: "Windows",
-      cmd: "iwr -useb https://install.securyblack.dev/cromo-forge.ps1 | iex",
+      cmd: "irm https://install.cromoforge.dev | iex",
     },
     {
       os: "Cargo",
@@ -675,12 +675,12 @@ export const titanVaultConfig: AgentConfig = {
   installCommands: [
     {
       os: "Linux",
-      cmd: "curl -fsSL https://install.securyblack.dev/titan-vault | sudo bash",
+      cmd: "curl -fsSL https://install.titanvault.dev | sudo bash",
       badge: "Recomendado",
     },
     {
       os: "Windows",
-      cmd: "iwr -useb https://install.securyblack.dev/titan-vault.ps1 | iex",
+      cmd: "irm https://install.titanvault.dev | iex",
     },
     {
       os: "Cargo",
