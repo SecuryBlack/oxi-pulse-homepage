@@ -770,7 +770,7 @@ export function ProductShowcase() {
                 className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 flex items-center gap-x-1.5 cursor-pointer transition-colors"
               >
                 <Zap className="size-3.5 text-amber-400" />
-                <span>Simular Pico de Carga</span>
+                <span>Simulate Load Spike</span>
               </button>
             )}
 
@@ -780,7 +780,7 @@ export function ProductShowcase() {
                 className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 flex items-center gap-x-1.5 cursor-pointer transition-colors"
               >
                 <Lock className="size-3.5 text-rose-400" />
-                <span>Simular Bloqueo Fuerza Bruta</span>
+                <span>Simulate Brute-Force Block</span>
               </button>
             )}
 
@@ -790,7 +790,7 @@ export function ProductShowcase() {
                 className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 flex items-center gap-x-1.5 cursor-pointer transition-colors"
               >
                 <RefreshCw className="size-3.5 text-orange-400" />
-                <span>Simular Failover VIP</span>
+                <span>Simulate VIP Failover</span>
               </button>
             )}
 
@@ -801,7 +801,7 @@ export function ProductShowcase() {
                   className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 flex items-center gap-x-1.5 cursor-pointer transition-colors"
                 >
                   <RefreshCw className="size-3.5" />
-                  <span>Test Destinos &lt;T&gt;</span>
+                  <span>Test Targets &lt;T&gt;</span>
                 </button>
                 <button
                   onClick={handleRunBackup}
@@ -809,15 +809,15 @@ export function ProductShowcase() {
                   className="px-3 py-1.5 rounded-lg bg-[var(--agent-primary)] text-zinc-950 font-semibold hover:brightness-110 flex items-center gap-x-1.5 cursor-pointer disabled:opacity-50 transition-all"
                 >
                   <Play className="size-3.5 fill-current" />
-                  <span>Ejecutar Backup &lt;B&gt;</span>
+                  <span>Run Backup &lt;B&gt;</span>
                 </button>
               </>
             )}
           </div>
 
           <div className="text-zinc-500 font-mono text-[11px] flex items-center gap-x-4">
-            <span>&lt;Tab&gt; Navegar</span>
-            <span>&lt;q&gt; Salir TUI</span>
+            <span>&lt;Tab&gt; Navigate</span>
+            <span>&lt;q&gt; Quit TUI</span>
           </div>
         </div>
       </div>

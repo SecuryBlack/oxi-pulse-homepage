@@ -18,14 +18,14 @@ export function BentoGrid() {
     <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center max-w-3xl mx-auto mb-16">
         <Badge variant="neutral" className="mb-3">
-          Ingeniería de Alta Resiliencia
+          High-Resilience Engineering
         </Badge>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          Construido para soportar cualquier desastre
+          Engineered for Peak Reliability
         </h2>
         <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-          Diseñado en Rust nativo bajo el principio de menor privilegio, huella de memoria
-          invisible y cero consumo de almacenamiento temporal en tu máquina.
+          Crafted in native Rust with least-privilege principles, ultra-low memory
+          footprint, and zero unneeded overhead on your hosts.
         </p>
       </div>
 
@@ -67,7 +67,7 @@ export function BentoGrid() {
               <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between text-xs text-zinc-500">
                 <span>{activeAgentConfig.name} Core</span>
                 <span className="text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-950 dark:group-hover:text-white transition-colors">
-                  Ver detalle &rarr;
+                  Learn more &rarr;
                 </span>
               </div>
             </Card>

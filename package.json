@@ -2,7 +2,7 @@
   "name": "oxi-pulse-homepage",
   "version": "0.1.0",
   "private": true,
-  "description": "Landing page oficial de oxi-pulse (SecuryBlack)",
+  "description": "Official landing page for oxi-pulse (SecuryBlack)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

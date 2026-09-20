@@ -98,7 +98,7 @@ export function Hero() {
               <button
                 onClick={handleCopy}
                 className="p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white transition-colors cursor-pointer shrink-0 border border-zinc-700/60"
-                title="Copiar comando"
+                title="Copy command"
               >
                 {copied ? (
                   <Check className="size-4 text-emerald-400" />

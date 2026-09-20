@@ -15,11 +15,11 @@ export function Footer() {
             <div>
               <h4 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 tracking-tight flex items-center gap-x-2">
                 <Cpu className="size-4 text-[var(--agent-primary-dark)] dark:text-[var(--agent-primary-light)]" />
-                <span>Ecosistema de Agentes Nativos SecuryBlack</span>
+                <span>SecuryBlack Native Agent Ecosystem</span>
               </h4>
               <p className="text-xs text-zinc-500 mt-1">
-                Herramientas modulares de código abierto en Rust diseñadas para operar de forma
-                autónoma o conectadas con SecuryBlack Cloud.
+                Modular, open-source Rust infrastructure agents designed to operate
+                autonomously or integrated with SecuryBlack Cloud.
               </p>
             </div>
             <a
@@ -28,7 +28,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-x-1.5 text-xs font-semibold text-zinc-900 dark:text-white hover:text-[var(--agent-primary)] transition-colors self-start sm:self-auto"
             >
-              <span>Conoce SecuryBlack Cloud</span>
+              <span>Explore SecuryBlack Cloud</span>
               <ArrowUpRight className="size-3.5" />
             </a>
           </div>
@@ -62,7 +62,7 @@ export function Footer() {
                     </div>
                     {isCurrent ? (
                       <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--agent-primary)] text-zinc-950 font-semibold">
-                        Este Agente
+                        Current Agent
                       </span>
                     ) : (
                       <span className="text-[10px] font-mono text-zinc-500">
@@ -82,7 +82,7 @@ export function Footer() {
                       rel="noopener noreferrer"
                       className="font-medium text-zinc-800 dark:text-zinc-200 hover:text-[var(--agent-primary)] transition-colors inline-flex items-center gap-x-1"
                     >
-                      <span>Web Oficial</span>
+                      <span>Official Site</span>
                       <ExternalLink className="size-3" />
                     </a>
                     <a
@@ -90,7 +90,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                      title={`${agent.name} en GitHub`}
+                      title={`${agent.name} on GitHub`}
                     >
                       <Github className="size-3.5" />
                     </a>

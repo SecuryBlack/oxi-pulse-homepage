@@ -105,7 +105,7 @@ const pkgPath = path.join(resolvedTarget, "package.json");
 if (fs.existsSync(pkgPath)) {
   const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
   pkg.name = `${preset}-homepage`;
-  pkg.description = `Landing page oficial de ${preset} (SecuryBlack)`;
+  pkg.description = `Official landing page for ${preset} (SecuryBlack)`;
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 }
 
@@ -171,5 +171,51 @@ const pubDir = path.join(resolvedTarget, "public");
 if (!fs.existsSync(pubDir)) fs.mkdirSync(pubDir, { recursive: true });
 fs.writeFileSync(path.join(pubDir, "icon.svg"), faviconContent);
 
+// 5. Write agent-specific README.md
+const AGENT_NAMES = {
+  "oxi-pulse": "OxiPulse",
+  "oxipulse": "OxiPulse",
+  "ferro-sentry": "FerroSentry",
+  "ferrosentry": "FerroSentry",
+  "cupra-flow": "CupraFlow",
+  "cupraflow": "CupraFlow",
+  "titan-vault": "TitanVault",
+  "titanvault": "TitanVault",
+  "cromo-forge": "CromoForge",
+  "cromoforge": "CromoForge",
+};
+const agentDisplayName = AGENT_NAMES[normPreset] || preset;
+const agentReadmeContent = `# ${agentDisplayName} Homepage
+
+Official landing page and website for [${agentDisplayName}](https://github.com/securyblack/${normPreset}).
+
+Part of the **SecuryBlack Agent Ecosystem**. Built with Next.js, React 19, Tailwind CSS, Motion, and OpenNext for Cloudflare Pages.
+
+## 🚀 Development
+
+\`\`\`bash
+# Install dependencies
+npm install
+
+# Run local development server
+npm run dev
+
+# Build for Cloudflare Pages
+npm run build:cf
+\`\`\`
+
+## 🛠️ Configuration
+
+Agent copy, metrics, and terminal simulation settings are configured in \`config/agent.config.ts\`.
+
+## 📄 License
+
+Apache-2.0 License.
+`;
+
+fs.writeFileSync(path.join(resolvedTarget, "README.md"), agentReadmeContent);
+
 console.log(`🎨 Iconos y Favicons SVG generados para ${preset}!`);
+console.log(`📝 README.md en inglés generado para ${preset}!`);
 console.log(`✅ ¡Web de ${preset} sincronizada con éxito en ${resolvedTarget}!`);
+

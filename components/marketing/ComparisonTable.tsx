@@ -9,14 +9,14 @@ export function ComparisonTable() {
     <section id="comparison" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center max-w-3xl mx-auto mb-16">
         <Badge variant="neutral" className="mb-3">
-          Precisión Técnica
+          Technical Benchmark
         </Badge>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          ¿Por qué reemplazar los scripts tradicionales?
+          Why Upgrade from Fragile Bash Scripts?
         </h2>
         <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-          Comparativa técnica entre {activeAgentConfig.name}, los scripts bash tradicionales
-          y las herramientas complejas de backup heredadas.
+          A side-by-side technical breakdown comparing {activeAgentConfig.name} against traditional
+          custom scripts and heavyweight legacy alternatives.
         </p>
       </div>
 
@@ -24,12 +24,12 @@ export function ComparisonTable() {
         <table className="w-full text-left text-xs sm:text-sm">
           <thead>
             <tr className="border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
-              <th className="py-4 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Capacidad Técnica</th>
+              <th className="py-4 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Capability</th>
               <th className="py-4 px-6 font-semibold text-[var(--agent-primary-dark)] dark:text-[var(--agent-primary-light)]">
                 {activeAgentConfig.name}
               </th>
-              <th className="py-4 px-6 font-semibold text-zinc-500 dark:text-zinc-400">Scripts Bash (infra actual)</th>
-              <th className="py-4 px-6 font-semibold text-zinc-500 dark:text-zinc-400">Alternativas Legadas</th>
+              <th className="py-4 px-6 font-semibold text-zinc-500 dark:text-zinc-400">Bash / Shell Scripts</th>
+              <th className="py-4 px-6 font-semibold text-zinc-500 dark:text-zinc-400">Legacy Alternatives</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800/60 text-zinc-700 dark:text-zinc-300">

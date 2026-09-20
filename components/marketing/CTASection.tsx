@@ -19,22 +19,22 @@ export function CTASection() {
 
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white leading-tight">
-            Comienza a proteger tus servidores hoy mismo
+            Get Started with {activeAgentConfig.name} Today
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-            Instálalo en 1 minuto como agente de código abierto independiente o conéctalo con
-            el panel de SecuryBlack Cloud para orquestación centralizada.
+            Deploy in under 60 seconds as an autonomous open-source agent or connect with
+            SecuryBlack Cloud for centralized fleet orchestration.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href={activeAgentConfig.githubUrl} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" icon={<Github className="size-4" />}>
-                Ver Código en GitHub
+                View on GitHub
               </Button>
             </a>
             <a href="https://app.securyblack.com" target="_blank" rel="noopener noreferrer">
               <Button variant="primary" size="lg" icon={<ArrowRight className="size-3.5" />}>
-                Probar SecuryBlack Cloud
+                Explore SecuryBlack Cloud
               </Button>
             </a>
           </div>

@@ -16,10 +16,10 @@ export function FAQ() {
     <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
       <div className="text-center mb-16">
         <Badge variant="neutral" className="mb-3">
-          Preguntas Frecuentes
+          Frequently Asked Questions
         </Badge>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          Todo lo que necesitas saber
+          Everything You Need to Know
         </h2>
       </div>
 

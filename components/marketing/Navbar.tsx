@@ -72,13 +72,13 @@ export function Navbar() {
         {/* Nav Links */}
         <nav className="hidden md:flex items-center gap-x-6 text-sm text-zinc-600 dark:text-zinc-400">
           <a href="#features" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
-            Ventajas
+            Features
           </a>
           <a href="#architecture" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
-            Arquitectura
+            Architecture
           </a>
           <a href="#comparison" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
-            Comparativa
+            Comparison
           </a>
           <a href="#faq" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
             FAQ
@@ -91,14 +91,14 @@ export function Navbar() {
               className="flex items-center gap-x-1 hover:text-zinc-950 dark:hover:text-white transition-colors cursor-pointer"
             >
               <Layers className="size-3.5 text-[var(--agent-primary-dark)] dark:text-[var(--agent-primary-light)]" />
-              <span>Ecosistema</span>
+              <span>Ecosystem</span>
               <ChevronDown className={`size-3 transition-transform ${ecosystemOpen ? "rotate-180" : ""}`} />
             </button>
 
             {ecosystemOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-2xl p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                 <div className="px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-zinc-400 border-b border-zinc-100 dark:border-zinc-900">
-                  Agentes SecuryBlack
+                  SecuryBlack Agents
                 </div>
                 <div className="space-y-1 mt-1">
                   {ecosystemAgents.map((agent) => {
@@ -125,7 +125,7 @@ export function Navbar() {
                           <span>{agent.name}</span>
                         </div>
                         <span className="text-[10px] text-zinc-400 font-mono">
-                          {isCurrent ? "Actual" : agent.badge}
+                          {isCurrent ? "Current" : agent.badge}
                         </span>
                       </a>
                     );
