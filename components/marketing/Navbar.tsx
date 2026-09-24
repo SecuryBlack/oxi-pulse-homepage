@@ -80,8 +80,11 @@ export function Navbar() {
           <a href="#comparison" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
             Comparison
           </a>
-          <a href="#faq" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
+          <a href="/#faq" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
             FAQ
+          </a>
+          <a href="/changelog" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
+            Changelog
           </a>
 
           {/* Ecosystem Dropdown (SEO Mesh) */}

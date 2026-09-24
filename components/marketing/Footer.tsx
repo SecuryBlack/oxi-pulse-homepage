@@ -132,6 +132,12 @@ export function Footer() {
               Cloud Dashboard
             </a>
             <a
+              href="/changelog"
+              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
+              Changelog
+            </a>
+            <a
               href={activeAgentConfig.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
