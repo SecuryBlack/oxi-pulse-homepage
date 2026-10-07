@@ -63,6 +63,12 @@ export function Hero() {
           ))}
         </div>
 
+        {activeAgentConfig.statsFootnote && (
+          <p className="mt-3 text-[11px] text-zinc-500 dark:text-zinc-400 max-w-3xl">
+            {activeAgentConfig.statsFootnote}
+          </p>
+        )}
+
         {/* Quick Install Command Box (Catalyst Terminal Style) */}
         <div className="w-full max-w-2xl mt-8">
           <div className="rounded-xl border border-zinc-300/80 dark:border-zinc-800 bg-zinc-950 text-white shadow-xl overflow-hidden text-left">

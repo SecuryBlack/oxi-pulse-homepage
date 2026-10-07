@@ -117,6 +117,7 @@ export interface AgentConfig {
   docsUrl: string;
   installCommands: InstallCommand[];
   stats: StatItem[];
+  statsFootnote?: string;
   features: BentoFeature[];
   comparisonRows: ComparisonRow[];
   faq: FAQItem[];
@@ -156,11 +157,13 @@ export const oxiPulseConfig: AgentConfig = {
     },
   ],
   stats: [
+    { label: "Memory", value: "15.5 MB", note: "Private memory, measured" },
+    { label: "CPU", value: "0.07 %", note: "Of one core, measured" },
     { label: "Download", value: "4 MB", note: "Linux x86_64 release" },
-    { label: "Protocol", value: "OTLP/gRPC", note: "Push, TLS for https" },
     { label: "Offline buffer", value: "72 h", note: "Default, in memory" },
-    { label: "License", value: "Apache 2.0", note: "No account needed" },
   ],
+  statsFootnote:
+    "Memory and CPU measured over 5 minutes of steady state at the default 30 s interval, OxiPulse 0.3.13 plus the unreleased changes, on Windows 11 (Intel i5-12600K). Linux measurements will be published with the benchmark scripts.",
   features: [
     {
       id: "otlp",
