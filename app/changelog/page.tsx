@@ -11,6 +11,7 @@ export const revalidate = 3600; // Cache 1 hour
 export const metadata: Metadata = {
   title: `Changelog — ${activeAgentConfig.name}`,
   description: `Official release history and release notes for ${activeAgentConfig.name}.`,
+  alternates: { canonical: "/changelog/" },
 };
 
 function getSectionBadge(type: string) {

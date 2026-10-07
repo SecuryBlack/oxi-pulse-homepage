@@ -27,30 +27,30 @@ export function ArchitectureFlow() {
         {
           step: "01",
           icon: Activity,
-          title: "Direct Kernel Syscalls",
-          desc: "Non-blocking /proc sampling and eBPF counters with zero shell forks or process overhead.",
-          tag: "Zero Overhead",
+          title: "Collect",
+          desc: "Every 30 s by default, reads CPU, memory, swap, disk, network, load and uptime from the OS through the sysinfo crate (/proc and /sys on Linux).",
+          tag: "sysinfo",
         },
         {
           step: "02",
-          icon: Cpu,
-          title: "Sub-Millisecond Batching",
-          desc: "Efficient in-memory aggregation of CPU, memory, disk I/O, and container cgroups.",
-          tag: "In-Memory",
+          icon: Layers,
+          title: "Buffer",
+          desc: "Keeps snapshots in an in-memory ring buffer while the backend is unreachable, with exponential backoff between retries.",
+          tag: "72 h default",
         },
         {
           step: "03",
           icon: Radio,
-          title: "OTLP Protobuf Packaging",
-          desc: "Standard OpenTelemetry metric serialization with zero heap allocation per cycle.",
-          tag: "OpenTelemetry",
+          title: "Export",
+          desc: "Sends OTLP metrics over gRPC with host attributes (host.name, OS, kernel, CPU model). TLS for https endpoints, optional Bearer token.",
+          tag: "OTLP/gRPC",
         },
         {
           step: "04",
-          icon: Cloud,
-          title: "Multiplexed gRPC Stream",
-          desc: "Encrypted HTTP/2 streaming pipeline delivering real-time telemetry to collectors or cloud.",
-          tag: "Low Latency",
+          icon: RefreshCw,
+          title: "Update",
+          desc: "Optionally checks GitHub Releases once a day and restarts through the service manager. Off with auto_update = false.",
+          tag: "Optional",
         },
       ];
     }
@@ -189,14 +189,13 @@ export function ArchitectureFlow() {
     <section id="architecture" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center max-w-3xl mx-auto mb-16">
         <Badge variant="neutral" className="mb-3">
-          Architecture & Pipeline
+          How it works
         </Badge>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          How It Works Under the Hood
+          Four steps, one binary
         </h2>
         <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-          Built from the ground up for maximum resilience, zero unneeded host resource consumption,
-          and robust automated operations.
+          The whole agent is about a thousand lines of Rust. Read it on GitHub.
         </p>
       </div>
 
@@ -228,10 +227,6 @@ export function ArchitectureFlow() {
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center gap-x-2 text-xs text-emerald-600 dark:text-emerald-400">
-                <CheckCircle2 className="size-3.5" />
-                <span>Verified in runtime</span>
-              </div>
             </div>
           );
         })}

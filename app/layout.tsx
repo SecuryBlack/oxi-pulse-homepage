@@ -3,14 +3,19 @@ import { activeAgentConfig } from "@/config/agent.config";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: `${activeAgentConfig.name} — ${activeAgentConfig.tagline}`,
+  metadataBase: new URL("https://oxipulse.dev"),
+  title: `${activeAgentConfig.name}: ${activeAgentConfig.tagline}`,
   description: activeAgentConfig.description,
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: activeAgentConfig.name,
+    title: `${activeAgentConfig.name}: ${activeAgentConfig.tagline}`,
+    description: activeAgentConfig.description,
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: activeAgentConfig.productTitle }],
   },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 export default function RootLayout({

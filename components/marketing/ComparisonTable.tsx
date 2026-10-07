@@ -9,14 +9,14 @@ export function ComparisonTable() {
     <section id="comparison" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center max-w-3xl mx-auto mb-16">
         <Badge variant="neutral" className="mb-3">
-          Technical Benchmark
+          Comparison
         </Badge>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          Why Upgrade from Fragile Bash Scripts?
+          How it compares
         </h2>
         <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-          A side-by-side technical breakdown comparing {activeAgentConfig.name} against traditional
-          custom scripts and heavyweight legacy alternatives.
+          {activeAgentConfig.name} does less than the established tools, on purpose. Pick it when
+          core host metrics over OTLP are all you need.
         </p>
       </div>
 
@@ -28,8 +28,8 @@ export function ComparisonTable() {
               <th className="py-4 px-6 font-semibold text-[var(--agent-primary-dark)] dark:text-[var(--agent-primary-light)]">
                 {activeAgentConfig.name}
               </th>
-              <th className="py-4 px-6 font-semibold text-zinc-500 dark:text-zinc-400">Bash / Shell Scripts</th>
-              <th className="py-4 px-6 font-semibold text-zinc-500 dark:text-zinc-400">Legacy Alternatives</th>
+              <th className="py-4 px-6 font-semibold text-zinc-500 dark:text-zinc-400">node_exporter</th>
+              <th className="py-4 px-6 font-semibold text-zinc-500 dark:text-zinc-400">OpenTelemetry Collector</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800/60 text-zinc-700 dark:text-zinc-300">

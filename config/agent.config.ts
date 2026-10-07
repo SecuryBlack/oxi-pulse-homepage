@@ -54,8 +54,8 @@ export const ecosystemAgents: EcosystemAgent[] = [
   {
     id: "oxipulse",
     name: "OxiPulse",
-    role: "Telemetry & Metrics",
-    tagline: "Hardware, container, and OTLP metrics monitoring with near-zero server overhead.",
+    role: "Metrics",
+    tagline: "Host metrics agent that exports over OTLP.",
     url: "https://oxipulse.dev",
     githubUrl: "https://github.com/securyblack/oxi-pulse",
     color: "#33E1BF",
@@ -64,42 +64,42 @@ export const ecosystemAgents: EcosystemAgent[] = [
   {
     id: "ferrosentry",
     name: "FerroSentry",
-    role: "Security & Hardening",
-    tagline: "Lightweight EDR, auditd monitoring, brute-force mitigation, and active firewall control.",
+    role: "Security audit",
+    tagline: "Server security audit agent.",
     url: "https://ferrosentry.dev",
     githubUrl: "https://github.com/securyblack/ferro-sentry",
     color: "#F43F5E",
-    badge: "EDR & Firewall",
+    badge: "Security",
   },
   {
     id: "cupraflow",
     name: "CupraFlow",
-    role: "High Availability & Network",
-    tagline: "VRRP VIP failover routing, WireGuard mesh, and intelligent traffic balancing.",
+    role: "Networking (in development)",
+    tagline: "Networking and high availability (in development).",
     url: "https://cupraflow.dev",
     githubUrl: "https://github.com/securyblack/cupra-flow",
     color: "#F97316",
-    badge: "VIP Failover",
+    badge: "In development",
   },
   {
     id: "cromoforge",
     name: "CromoForge",
-    role: "GitOps & Deployments",
-    tagline: "Container continuous delivery and zero-downtime atomic rollouts across your servers.",
+    role: "Docker & PostgreSQL",
+    tagline: "Docker containers, logs and PostgreSQL management.",
     url: "https://cromoforge.dev",
     githubUrl: "https://github.com/securyblack/cromo-forge",
     color: "#6366F1",
-    badge: "GitOps Containers",
+    badge: "Containers",
   },
   {
     id: "titanvault",
     name: "TitanVault",
-    role: "Backups & Disaster Recovery",
-    tagline: "Stream database dumps directly to cloud storage with zero intermediate disk usage and ChaCha20 encryption.",
+    role: "Backups",
+    tagline: "Scheduled backups for databases and configuration.",
     url: "https://titanvault.dev",
     githubUrl: "https://github.com/securyblack/titan-vault",
     color: "#06B6D4",
-    badge: "Zero-Disk Backup",
+    badge: "Backups",
   },
 ];
 
@@ -123,18 +123,18 @@ export interface AgentConfig {
 }
 
 /* ==========================================================================
-   PRESET: OxiPulse (Mint / Emerald) — Real-Time Telemetry & Vital Signs
+   PRESET: OxiPulse (Mint / Emerald) — Host metrics agent for OTLP
    ========================================================================== */
 export const oxiPulseConfig: AgentConfig = {
   id: "oxi-pulse",
   name: "OxiPulse",
   binaryName: "oxipulse",
-  productTitle: "OxiPulse — Lightweight Server Telemetry & Vital Signs",
-  badge: "Rust Native · Open Source · Apache 2.0",
+  productTitle: "OxiPulse — Host metrics agent for OpenTelemetry",
+  badge: "Open source · Apache 2.0 · Rust",
   version: "v0.3.13",
-  tagline: "Real-Time Vital Signs & Telemetry with Zero Overhead",
+  tagline: "Host metrics to any OTLP backend",
   description:
-    "Monitor CPU, RAM, disk I/O, OTLP metrics, and network traffic in real time. Ultra-low Rust footprint, native gRPC streaming, and standalone interactive TUI for live troubleshooting.",
+    "A small Rust agent that collects CPU, memory, disk, network, load and uptime from your servers and pushes them over OTLP/gRPC to your own collector, Prometheus/Grafana stack or any OpenTelemetry vendor. No account needed.",
   theme: {
     primary: "#33E1BF", // Brand Mint
     primaryDark: "#1FB899",
@@ -147,109 +147,121 @@ export const oxiPulseConfig: AgentConfig = {
   installCommands: [
     {
       os: "Linux",
-      cmd: "curl -fsSL https://install.oxipulse.dev | sudo bash",
+      cmd: "curl -fsSL https://install.oxipulse.dev | sudo bash -s -- --endpoint http://<collector>:4317",
       badge: "Recommended",
     },
     {
       os: "Windows",
-      cmd: "irm https://install.oxipulse.dev | iex",
-    },
-    {
-      os: "Cargo",
-      cmd: "cargo install oxi-pulse",
+      cmd: "& ([scriptblock]::Create((irm https://install.oxipulse.dev))) -Endpoint http://<collector>:4317",
     },
   ],
   stats: [
-    { label: "CPU Overhead", value: "< 0.1%", note: "Invisible in production" },
-    { label: "RAM Footprint", value: "< 8 MB", note: "Static Rust binary" },
-    { label: "Metrics Latency", value: "100 ms", note: "Real-time streaming" },
-    { label: "Protocol", value: "OTLP / gRPC", note: "OpenTelemetry compliant" },
+    { label: "Download", value: "4 MB", note: "Linux x86_64 release" },
+    { label: "Protocol", value: "OTLP/gRPC", note: "Push, TLS for https" },
+    { label: "Offline buffer", value: "72 h", note: "Default, in memory" },
+    { label: "License", value: "Apache 2.0", note: "No account needed" },
   ],
   features: [
     {
-      id: "telemetry",
-      title: "Kernel-Level Telemetry",
-      subtitle: "Zero-Overhead Sampling",
-      description:
-        "Samples directly from /proc and kernel counters without spawning shells or heavy Node/Python runtimes.",
-      colSpan: "col-span-2",
-      tag: "Architecture",
-    },
-    {
       id: "otlp",
-      title: "Native OTLP Compatibility",
-      subtitle: "OpenTelemetry Standard",
+      title: "Speaks OpenTelemetry",
+      subtitle: "Vendor-neutral",
       description:
-        "Exports standard OTLP metrics to Prometheus, VictoriaMetrics, Datadog, or SecuryBlack Cloud.",
-      colSpan: "col-span-1",
+        "Pushes standard OTLP over gRPC. Point it at an OpenTelemetry Collector, Grafana Alloy, SigNoz, OpenObserve, Uptrace, VictoriaMetrics or any OTLP vendor. An optional Bearer token covers backends that need auth.",
+      colSpan: "col-span-2",
       tag: "Standard",
     },
     {
-      id: "tui",
-      title: "Interactive htop-Style Console",
-      subtitle: "Standalone TUI (top)",
+      id: "buffer",
+      title: "Survives outages",
+      subtitle: "Offline buffer",
       description:
-        "Launch 'oxipulse top' on any server to view real-time CPU graphs, memory usage, and processes without extra dependencies.",
+        "When the backend is unreachable it keeps up to 8,640 snapshots (72 h at the default 30 s interval) and sends them when the connection comes back.",
       colSpan: "col-span-1",
-      tag: "Diagnostics",
+      tag: "Resilience",
     },
     {
-      id: "alerts",
-      title: "Edge Anomaly Detection",
-      subtitle: "Local Thresholds",
+      id: "update",
+      title: "Updates itself, if you want",
+      subtitle: "Optional self-update",
       description:
-        "Evaluates disk saturation, RAM exhaustion, and network spikes locally at the node before cascading failures occur.",
+        "Checks GitHub Releases once a day and restarts through systemd or the Windows service manager. Set auto_update = false to pin the version.",
+      colSpan: "col-span-1",
+      tag: "Operations",
+    },
+    {
+      id: "privacy",
+      title: "Private by default",
+      subtitle: "Only talks to your endpoint",
+      description:
+        "With your own backend it connects only to your endpoint, GitHub Releases (unless self-update is off) and a latency target you can change. Every outbound connection is listed in SECURITY.md.",
       colSpan: "col-span-2",
-      tag: "Resilience",
+      tag: "Trust",
     },
   ],
   comparisonRows: [
     {
-      feature: "RAM Footprint",
-      agent: "< 8 MB (Static Rust)",
-      bashScript: "Blind scripts (Disconnected)",
-      competitors: "150–350 MB (Datadog/Node/Telegraf)",
+      feature: "How metrics move",
+      agent: "Push over OTLP/gRPC",
+      bashScript: "Pull (Prometheus scrapes it)",
+      competitors: "Push or pull, many protocols",
     },
     {
-      feature: "Sampling Latency",
-      agent: "100 ms (gRPC streaming)",
-      bashScript: "1–5 minutes (cron)",
-      competitors: "15–60 s (HTTP scraping)",
+      feature: "Linux x86_64 download",
+      agent: "4.0 MB",
+      bashScript: "12.2 MB (v1.12.1)",
+      competitors: "37.3 MB (otelcol v0.162.0)",
     },
     {
-      feature: "Interactive Console (TUI)",
-      agent: "Native ('oxipulse top')",
-      bashScript: "Requires manual htop/top",
-      competitors: "No (Web dashboard only)",
+      feature: "Metric coverage",
+      agent: "Core host set (CPU, memory, swap, disk, network, load, uptime)",
+      bashScript: "Very broad, dozens of collectors",
+      competitors: "Very broad, plus logs and traces",
     },
     {
-      feature: "OpenTelemetry Exporter",
-      agent: "Native OTLP / Protobuf",
+      feature: "Buffer while backend is down",
+      agent: "Built in (72 h default)",
+      bashScript: "Not applicable (pull)",
+      competitors: "Yes, with sending queue / storage config",
+    },
+    {
+      feature: "Self-update",
+      agent: "Optional, daily",
       bashScript: "No",
-      competitors: "Requires OTEL Collector daemon",
+      competitors: "No",
     },
     {
-      feature: "SecuryBlack Cloud Integration",
-      agent: "Native (gRPC Tunnel + Heartbeats)",
-      bashScript: "None",
-      competitors: "None",
+      feature: "Configuration",
+      agent: "One TOML file, only endpoint required",
+      bashScript: "Flags",
+      competitors: "YAML pipelines",
     },
   ],
   faq: [
     {
-      question: "Does OxiPulse require a SecuryBlack Cloud account?",
+      question: "Do I need a SecuryBlack account?",
       answer:
-        "No. OxiPulse is 100% open source under Apache-2.0. You can run it fully standalone with its 'oxipulse top' TUI or export telemetry to your own OTLP/Prometheus collector without ever creating an account.",
+        "No. OxiPulse is Apache 2.0 and works with any OTLP/gRPC endpoint. The repository includes a Docker Compose example with the OpenTelemetry Collector, Prometheus and Grafana. SecuryBlack Cloud is an optional hosted backend.",
     },
     {
-      question: "How does it achieve such low CPU utilization?",
+      question: "Does it send anything to SecuryBlack?",
       answer:
-        "It is written in pure, native Rust with no garbage collector or runtime overhead. Metric sampling reads kernel counters through direct syscalls without process forking.",
+        "Not with your own backend and default settings. It only contacts SecuryBlack when the endpoint is SecuryBlack Cloud or when you explicitly set telemetry_enabled = true. SECURITY.md lists every outbound connection.",
     },
     {
-      question: "Is it compatible with Docker and Podman containers?",
+      question: "When should I use node_exporter or the OpenTelemetry Collector instead?",
       answer:
-        "Yes, it automatically detects cgroups v1 and v2 container namespaces, breaking down resource consumption per container in real time.",
+        "If you need many metric sources (systemd units, hardware sensors, per-process or per-container metrics), logs or traces, those tools cover far more. OxiPulse is for the common case: core host metrics pushed over OTLP from many small servers with one small binary and almost no configuration.",
+    },
+    {
+      question: "Which platforms are supported?",
+      answer:
+        "Linux x86_64 and arm64 (systemd) and Windows x86_64 (Windows service). There is no macOS build yet.",
+    },
+    {
+      question: "Does it run as root?",
+      answer:
+        "On Linux the service currently runs as root, because the self-updater replaces the binary in /usr/local/bin. SECURITY.md explains how to run it as an unprivileged user with self-update disabled.",
     },
   ],
 };
