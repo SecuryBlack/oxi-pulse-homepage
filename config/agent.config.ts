@@ -132,7 +132,7 @@ export const oxiPulseConfig: AgentConfig = {
   binaryName: "oxipulse",
   productTitle: "OxiPulse — Host metrics agent for OpenTelemetry",
   badge: "Open source · Apache 2.0 · Rust",
-  version: "v0.3.13",
+  version: "v0.3.14",
   tagline: "Host metrics to any OTLP backend",
   description:
     "A small Rust agent that collects CPU, memory, disk, network, load and uptime from your servers and pushes them over OTLP/gRPC to your own collector, Prometheus/Grafana stack or any OpenTelemetry vendor. No account needed.",
@@ -163,7 +163,7 @@ export const oxiPulseConfig: AgentConfig = {
     { label: "Offline buffer", value: "72 h", note: "Default, in memory" },
   ],
   statsFootnote:
-    "Memory and CPU measured over 5 minutes of steady state at the default 30 s interval, OxiPulse 0.3.13 plus the unreleased changes, on Windows 11 (Intel i5-12600K). Linux measurements will be published with the benchmark scripts.",
+    "Memory and CPU measured over 5 minutes of steady state at the default 30 s interval, OxiPulse 0.3.14 on Windows 11 (Intel i5-12600K). Linux measurements will be published with the benchmark scripts.",
   features: [
     {
       id: "otlp",
