@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { activeAgentConfig } from "@/config/agent.config";
 import { Badge } from "@/components/catalyst/badge";
 import { track } from "@/lib/analytics";
+import { useLatestRelease } from "@/lib/useLatestRelease";
 import { Copy, Check, Terminal as TerminalIcon, Sparkles } from "lucide-react";
 
 export function Hero() {
@@ -11,9 +12,11 @@ export function Hero() {
   const [copied, setCopied] = useState(false);
 
   const activeCommand = activeAgentConfig.installCommands[activeOsIndex] || activeAgentConfig.installCommands[0];
+  const version = useLatestRelease().replace(/^v/, "");
+  const cmd = activeCommand.cmd.replaceAll("{version}", version);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(activeCommand.cmd);
+    navigator.clipboard.writeText(cmd);
     track("install_command_copy", { os: activeCommand.os.toLowerCase() });
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -104,21 +107,32 @@ export function Hero() {
                   </button>
                 ))}
               </div>
-              <a
-                href="https://github.com/securyblack/oxi-pulse/blob/main/scripts/install.sh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[11px] text-zinc-400 hover:text-zinc-200 font-mono hidden sm:inline"
-              >
-                Read the script first
-              </a>
+              {activeCommand.os.startsWith(".") ? (
+                <a
+                  href={`${activeAgentConfig.githubUrl}/releases/latest`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] text-zinc-400 hover:text-zinc-200 font-mono hidden sm:inline"
+                >
+                  All packages
+                </a>
+              ) : (
+                <a
+                  href="https://github.com/securyblack/oxi-pulse/blob/main/scripts/install.sh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] text-zinc-400 hover:text-zinc-200 font-mono hidden sm:inline"
+                >
+                  Read the script first
+                </a>
+              )}
             </div>
 
             {/* Code Line */}
             <div className="p-3.5 flex items-center justify-between gap-3">
               <div className="flex items-center gap-x-2 text-xs sm:text-sm font-mono text-zinc-200 truncate select-all">
                 <TerminalIcon className="size-4 text-[var(--agent-primary-light)] shrink-0" />
-                <span className="truncate">{activeCommand.cmd}</span>
+                <span className="truncate">{cmd}</span>
               </div>
               <button
                 onClick={handleCopy}
@@ -132,6 +146,11 @@ export function Hero() {
                 )}
               </button>
             </div>
+            {activeCommand.note && (
+              <div className="px-3.5 pb-3 -mt-1 text-[11px] text-zinc-400 leading-relaxed">
+                {activeCommand.note}
+              </div>
+            )}
           </div>
         </div>
 

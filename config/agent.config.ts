@@ -1,7 +1,10 @@
 export interface InstallCommand {
-  os: "Linux" | "Windows" | "Cargo" | "Docker";
+  os: "Linux" | "Windows" | "Cargo" | "Docker" | ".deb" | ".rpm";
+  /** `{version}` is replaced with the latest release, without the "v". */
   cmd: string;
   badge?: string;
+  /** Shown under the command, for steps the command itself does not do. */
+  note?: string;
 }
 
 export interface StatItem {
@@ -133,7 +136,7 @@ export const oxiPulseConfig: AgentConfig = {
   binaryName: "oxipulse",
   productTitle: "OxiPulse — Host metrics agent for OpenTelemetry",
   badge: "Open source · Apache 2.0 · Rust",
-  version: "v0.3.14",
+  version: "v0.4.2",
   tagline: "Host metrics to any OTLP backend",
   description:
     "A small Rust agent that collects CPU, memory, disk, network, load and uptime from your servers and pushes them over OTLP/gRPC to your own collector, Prometheus/Grafana stack or any OpenTelemetry vendor. No account needed.",
@@ -151,6 +154,16 @@ export const oxiPulseConfig: AgentConfig = {
       os: "Linux",
       cmd: "curl -fsSL https://install.oxipulse.dev | sudo bash -s -- --endpoint http://<collector>:4317",
       badge: "Recommended",
+    },
+    {
+      os: ".deb",
+      cmd: "curl -fsSLO https://github.com/securyblack/oxi-pulse/releases/download/v{version}/oxipulse_{version}_amd64.deb && sudo apt install ./oxipulse_{version}_amd64.deb",
+      note: "Debian, Ubuntu. Then set endpoint in /etc/oxipulse/config.toml and run sudo systemctl enable --now oxipulse. arm64 packages are in the release.",
+    },
+    {
+      os: ".rpm",
+      cmd: "sudo dnf install https://github.com/securyblack/oxi-pulse/releases/download/v{version}/oxipulse-{version}-1.x86_64.rpm",
+      note: "RHEL, Rocky, Alma, Fedora. Then set endpoint in /etc/oxipulse/config.toml and run sudo systemctl enable --now oxipulse. aarch64 packages are in the release.",
     },
     {
       os: "Windows",
@@ -181,7 +194,7 @@ export const oxiPulseConfig: AgentConfig = {
       title: "Survives outages",
       subtitle: "Offline buffer",
       description:
-        "When the backend is unreachable it keeps up to 8,640 snapshots (72 h at the default 30 s interval) and sends them when the connection comes back.",
+        "When the backend is unreachable it keeps every export, up to 72 h at the default 30 s interval, and sends them in order with their original timestamps when the connection comes back. No gaps in your graphs.",
       colSpan: "col-span-1",
       tag: "Resilience",
     },
@@ -273,12 +286,12 @@ export const oxiPulseConfig: AgentConfig = {
     {
       question: "Which platforms are supported?",
       answer:
-        "Linux x86_64 and arm64 (systemd) and Windows x86_64 (Windows service). There is no macOS build yet.",
+        "Linux x86_64 and arm64 with systemd, on any distribution with glibc 2.17 or later (CentOS 7 onwards, Debian, Ubuntu, RHEL, Rocky, Alma, Fedora), as an install script or .deb and .rpm packages. Windows x86_64 as a Windows service. There is no macOS build yet.",
     },
     {
       question: "Does it run as root?",
       answer:
-        "On Linux the service currently runs as root, because the self-updater replaces the binary in /usr/local/bin. SECURITY.md explains how to run it as an unprivileged user with self-update disabled.",
+        "On Linux the service runs as root, with the install script and with the packages. With the script, the self-updater replaces the binary in /usr/local/bin; packages leave updates to apt or dnf. SECURITY.md explains how to run it as an unprivileged user with self-update disabled.",
     },
   ],
 };
