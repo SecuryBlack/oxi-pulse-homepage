@@ -51,8 +51,8 @@ export function Analytics() {
     >
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 sm:flex-row sm:justify-between">
         <p className="text-center sm:text-left">
-          We use analytics cookies (Google Analytics, PostHog) to see which pages help people try OxiPulse. Nothing is
-          loaded unless you accept.{" "}
+          We use analytics cookies and session recordings (Google Analytics, PostHog) to see which pages help people try
+          OxiPulse. Nothing is loaded unless you accept.{" "}
           <a
             href="https://securyblack.com/en/legal/cookies"
             target="_blank"

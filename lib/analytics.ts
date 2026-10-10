@@ -66,12 +66,9 @@ export function loadAnalytics() {
         person_profiles: "identified_only",
         capture_pageleave: true,
         disable_surveys: true,
-        // The project has replay and autocapture extras enabled for the app;
-        // the banner only covers analytics, so keep them off here.
-        disable_session_recording: true,
+        // Same as securyblack.com: session replay on, dead clicks and exceptions off.
         capture_dead_clicks: false,
         capture_exceptions: false,
-        enable_heatmaps: false,
       });
       posthog = ph;
     });
