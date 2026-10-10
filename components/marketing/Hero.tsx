@@ -141,12 +141,12 @@ export function Hero() {
             Sample series in Prometheus, via the OpenTelemetry Collector (labels trimmed)
           </div>
           <pre className="rounded-xl border border-zinc-300/80 dark:border-zinc-800 bg-zinc-950 text-zinc-200 p-4 text-[11px] sm:text-xs font-mono overflow-x-auto leading-relaxed">
-{`system_cpu_usage_percent{host_name="web-01"}                 10.29
-system_memory_used_bytes{host_name="web-01"}                 2.33e+10
-system_disk_used_bytes{host_name="web-01",disk_name="/dev/sda1"} 4.60e+10
-system_network_receive_bytes_per_second{host_name="web-01"}  279.87
-system_cpu_load_average_1m_ratio{host_name="web-01"}         0.14
-system_uptime_seconds{host_name="web-01"}                    350986`}
+{`system_cpu_utilization_ratio{host_name="web-01"}                                 0.1029
+system_memory_usage_bytes{host_name="web-01",state="used"}                       2.33e+10
+system_filesystem_usage_bytes{host_name="web-01",device="/dev/sda1",state="used"} 4.60e+10
+system_network_io_bytes_total{host_name="web-01",device="eth0",direction="receive"} 8.39e+09
+system_cpu_load_average_1m{host_name="web-01"}                                    0.14
+system_uptime_seconds{host_name="web-01"}                                         350986`}
           </pre>
         </div>
       </div>
