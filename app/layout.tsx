@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { activeAgentConfig } from "@/config/agent.config";
+import { Analytics } from "@/components/Analytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -57,6 +58,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-[#09090b] dark:text-zinc-100 flex flex-col justify-between selection:bg-[var(--agent-primary)] selection:text-zinc-950">
         {children}
+        <Analytics />
       </body>
     </html>
   );

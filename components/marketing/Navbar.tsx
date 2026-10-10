@@ -59,7 +59,7 @@ export function Navbar() {
           <span className="text-xs text-zinc-500 hidden md:inline">
             by{" "}
             <a
-              href="https://securyblack.com"
+              href="https://securyblack.com/en?utm_source=oxipulse.dev&utm_medium=referral&utm_campaign=oxipulse_site&utm_content=nav"
               target="_blank"
               rel="noopener noreferrer"
               className="text-zinc-700 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors underline-offset-2 hover:underline"
@@ -136,7 +136,7 @@ export function Navbar() {
                 </div>
                 <div className="mt-2 pt-2 border-t border-zinc-100 dark:border-zinc-900">
                   <a
-                    href="https://securyblack.com"
+                    href="https://securyblack.com/en?utm_source=oxipulse.dev&utm_medium=referral&utm_campaign=oxipulse_site&utm_content=nav"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between px-3 py-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white font-medium"
@@ -164,7 +164,7 @@ export function Navbar() {
             </Button>
           </a>
           <a
-            href="https://app.securyblack.com"
+            href="https://app.securyblack.com/?utm_source=oxipulse.dev&utm_medium=referral&utm_campaign=oxipulse_site&utm_content=nav"
             target="_blank"
             rel="noopener noreferrer"
           >

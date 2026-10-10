@@ -7,7 +7,7 @@ import { ArrowRight, Github } from "lucide-react";
 
 export function CTASection() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="cta" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-gradient-to-b from-zinc-50 via-white to-zinc-100 dark:from-zinc-900/80 dark:via-zinc-950 dark:to-zinc-950 p-8 sm:p-12 shadow-xl dark:shadow-2xl relative overflow-hidden">
         {/* Glow */}
         <div

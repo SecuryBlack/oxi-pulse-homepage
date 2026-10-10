@@ -23,7 +23,7 @@ export function Footer() {
               </p>
             </div>
             <a
-              href="https://securyblack.com"
+              href="https://securyblack.com/en?utm_source=oxipulse.dev&utm_medium=referral&utm_campaign=oxipulse_site&utm_content=footer"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-x-1.5 text-xs font-semibold text-zinc-900 dark:text-white hover:text-[var(--agent-primary)] transition-colors self-start sm:self-auto"
@@ -116,7 +116,7 @@ export function Footer() {
 
           <div className="flex items-center gap-x-6 text-zinc-600 dark:text-zinc-400">
             <a
-              href="https://securyblack.com"
+              href="https://securyblack.com/en?utm_source=oxipulse.dev&utm_medium=referral&utm_campaign=oxipulse_site&utm_content=footer"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-zinc-900 dark:hover:text-white transition-colors"
@@ -124,7 +124,7 @@ export function Footer() {
               SecuryBlack Home
             </a>
             <a
-              href="https://app.securyblack.com"
+              href="https://app.securyblack.com/?utm_source=oxipulse.dev&utm_medium=referral&utm_campaign=oxipulse_site&utm_content=footer"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-zinc-900 dark:hover:text-white transition-colors"
