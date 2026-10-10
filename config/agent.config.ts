@@ -118,6 +118,7 @@ export interface AgentConfig {
   installCommands: InstallCommand[];
   stats: StatItem[];
   statsFootnote?: string;
+  statsSourceUrl?: string;
   features: BentoFeature[];
   comparisonRows: ComparisonRow[];
   faq: FAQItem[];
@@ -157,13 +158,14 @@ export const oxiPulseConfig: AgentConfig = {
     },
   ],
   stats: [
-    { label: "Memory", value: "15.5 MB", note: "Private memory, measured" },
-    { label: "CPU", value: "0.07 %", note: "Of one core, measured" },
+    { label: "Memory", value: "11 MB", note: "RSS on Linux, measured" },
+    { label: "CPU", value: "0.01 %", note: "Of one core, measured" },
     { label: "Download", value: "4 MB", note: "Linux x86_64 release" },
     { label: "Offline buffer", value: "72 h", note: "Default, in memory" },
   ],
   statsFootnote:
-    "Memory and CPU measured over 5 minutes of steady state at the default 30 s interval, OxiPulse 0.3.14 on Windows 11 (Intel i5-12600K). Linux measurements will be published with the benchmark scripts.",
+    "OxiPulse 0.3.14 at the default 30 s interval, 5 minutes of steady state on a GitHub Actions Ubuntu 24.04 runner: 11.4 MB RSS (3.5 MB private), against 24 MB for node_exporter and 204 MB for the OpenTelemetry Collector with hostmetrics in the same run. On Windows 11: 15.5 MB private memory, 0.07 % of one core.",
+  statsSourceUrl: "https://github.com/securyblack/oxi-pulse/tree/main/bench",
   features: [
     {
       id: "otlp",
@@ -208,6 +210,18 @@ export const oxiPulseConfig: AgentConfig = {
       agent: "Push over OTLP/gRPC",
       bashScript: "Pull (Prometheus scrapes it)",
       competitors: "Push or pull, many protocols",
+    },
+    {
+      feature: "Memory on Linux (RSS)",
+      agent: "11 MB",
+      bashScript: "24 MB",
+      competitors: "204 MB (hostmetrics receiver)",
+    },
+    {
+      feature: "CPU at a 30 s interval",
+      agent: "0.01 % of one core",
+      bashScript: "0.04 %",
+      competitors: "0.06 %",
     },
     {
       feature: "Linux x86_64 download",

@@ -68,6 +68,19 @@ export function Hero() {
         {activeAgentConfig.statsFootnote && (
           <p className="mt-3 text-[11px] text-zinc-500 dark:text-zinc-400 max-w-3xl">
             {activeAgentConfig.statsFootnote}
+            {activeAgentConfig.statsSourceUrl && (
+              <>
+                {" "}
+                <a
+                  href={activeAgentConfig.statsSourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-zinc-700 dark:hover:text-zinc-200"
+                >
+                  Method and script
+                </a>
+              </>
+            )}
           </p>
         )}
 
