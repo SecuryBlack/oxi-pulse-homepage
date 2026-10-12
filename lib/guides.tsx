@@ -6,7 +6,7 @@ const RAW = "https://raw.githubusercontent.com/SecuryBlack/oxi-pulse/main/docs/b
 const BLOB = "https://github.com/SecuryBlack/oxi-pulse/blob/main/docs/backends/";
 
 export const guides = [
-  { slug: "signoz", name: "SigNoz", summary: "Directly over OTLP/gRPC, self-hosted or SigNoz Cloud." },
+  { slug: "signoz", name: "SigNoz", summary: "Directly over OTLP/gRPC, self-hosted or SigNoz Cloud. Not yet tested in CI." },
   { slug: "openobserve", name: "OpenObserve", summary: "Directly over OTLP/gRPC with Basic auth headers." },
   { slug: "uptrace", name: "Uptrace", summary: "Directly over OTLP/gRPC with the project DSN header." },
   { slug: "victoriametrics", name: "VictoriaMetrics", summary: "Through an OTel Collector, with Prometheus-style names." },

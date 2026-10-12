@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!guide) return {};
   return {
     title: `Send host metrics to ${guide.name} with OxiPulse`,
-    description: `Ship Linux and Windows server metrics (CPU, memory, disk, network) to ${guide.name} over OpenTelemetry. ${guide.summary} Tested end to end in CI.`,
+    description: `Ship Linux and Windows server metrics (CPU, memory, disk, network) to ${guide.name} over OpenTelemetry. ${guide.summary}`,
     alternates: { canonical: `/guides/${slug}/` },
   };
 }
