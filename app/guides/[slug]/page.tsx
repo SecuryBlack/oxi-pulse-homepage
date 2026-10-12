@@ -6,12 +6,9 @@ import { Footer } from "@/components/marketing/Footer";
 import { guides, getGuide, renderMarkdown } from "@/lib/guides";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 
+// Rendered on request, not prerendered: the Cloudflare deploy has no incremental
+// cache to serve prerendered pages from (open-next.config.ts uses "dummy").
 export const revalidate = 3600;
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return guides.map((g) => ({ slug: g.slug }));
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -26,6 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  if (!guides.some((g) => g.slug === slug)) notFound();
   const md = await getGuide(slug);
   if (!md) notFound();
   const { title, body } = renderMarkdown(md);
