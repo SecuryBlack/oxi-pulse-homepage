@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { activeAgentConfig, ecosystemAgents } from "@/config/agent.config";
 import { AgentLogo } from "@/components/catalyst/agent-logo";
 import { Github, ExternalLink, ArrowUpRight, Cpu } from "lucide-react";
@@ -131,6 +132,12 @@ export function Footer() {
             >
               Cloud Dashboard
             </a>
+            <Link
+              href="/guides/"
+              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
+              Guides
+            </Link>
             <a
               href="/changelog"
               className="hover:text-zinc-900 dark:hover:text-white transition-colors"

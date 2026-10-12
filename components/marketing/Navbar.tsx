@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { activeAgentConfig, ecosystemAgents } from "@/config/agent.config";
 import { Badge } from "@/components/catalyst/badge";
 import { Button } from "@/components/catalyst/button";
@@ -83,6 +84,9 @@ export function Navbar() {
           <a href="/#faq" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
             FAQ
           </a>
+          <Link href="/guides/" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
+            Guides
+          </Link>
           <a href="/changelog" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
             Changelog
           </a>
