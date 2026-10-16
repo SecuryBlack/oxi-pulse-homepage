@@ -28,7 +28,7 @@ export function ArchitectureFlow() {
           step: "01",
           icon: Activity,
           title: "Collect",
-          desc: "Every 30 s by default, reads CPU, memory, swap, disk, network, load and uptime from the OS through the sysinfo crate (/proc and /sys on Linux).",
+          desc: "Every 30 s by default, reads CPU, memory, swap, disk, network, load and uptime through the sysinfo crate, and on Linux CPU steal, pressure stall (PSI), OOM kills, failed systemd units and per-service memory and CPU from /proc and cgroup v2.",
           tag: "sysinfo",
         },
         {

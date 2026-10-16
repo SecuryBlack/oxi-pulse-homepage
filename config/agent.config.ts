@@ -136,10 +136,10 @@ export const oxiPulseConfig: AgentConfig = {
   binaryName: "oxipulse",
   productTitle: "OxiPulse — Host metrics agent for OpenTelemetry",
   badge: "Open source · Apache 2.0 · Rust",
-  version: "v0.4.2",
+  version: "v0.5.0",
   tagline: "Host metrics to any OTLP backend",
   description:
-    "A small Rust agent that collects CPU, memory, disk, network, load and uptime from your servers and pushes them over OTLP/gRPC to your own collector, Prometheus/Grafana stack or any OpenTelemetry vendor. No account needed.",
+    "A small Rust agent that collects CPU, memory, disk, network, load and uptime from your servers, plus pressure stall, OOM kills, failed units and per-service usage on Linux, and pushes them over OTLP/gRPC to your own collector, Prometheus/Grafana stack or any OpenTelemetry vendor. No account needed.",
   theme: {
     primary: "#33E1BF", // Brand Mint
     primaryDark: "#1FB899",
@@ -212,7 +212,7 @@ export const oxiPulseConfig: AgentConfig = {
       title: "Private by default",
       subtitle: "Only talks to your endpoint",
       description:
-        "With your own backend it connects only to your endpoint, GitHub Releases (unless self-update is off) and a latency target you can change. Every outbound connection is listed in SECURITY.md.",
+        "With your own backend it connects only to your endpoint, GitHub Releases (unless self-update is off) and any latency targets you add. Every outbound connection is listed in SECURITY.md.",
       colSpan: "col-span-2",
       tag: "Trust",
     },
@@ -244,7 +244,7 @@ export const oxiPulseConfig: AgentConfig = {
     },
     {
       feature: "Metric coverage",
-      agent: "Core host set (CPU, memory, swap, disk, network, load, uptime)",
+      agent: "Core host set (CPU, memory, swap, disk, network, load, uptime, inodes) plus Linux PSI, OOM kills, systemd and per-service usage",
       bashScript: "Very broad, dozens of collectors",
       competitors: "Very broad, plus logs and traces",
     },
