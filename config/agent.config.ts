@@ -136,7 +136,7 @@ export const oxiPulseConfig: AgentConfig = {
   binaryName: "oxipulse",
   productTitle: "OxiPulse — Host metrics agent for OpenTelemetry",
   badge: "Open source · Apache 2.0 · Rust",
-  version: "v0.5.0",
+  version: "v0.5.1",
   tagline: "Host metrics to any OTLP backend",
   description:
     "A small Rust agent that collects CPU, memory, disk, network, load and uptime from your servers, plus pressure stall, OOM kills, failed units and per-service usage on Linux, and pushes them over OTLP/gRPC to your own collector, Prometheus/Grafana stack or any OpenTelemetry vendor. No account needed.",
