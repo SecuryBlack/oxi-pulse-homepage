@@ -19,8 +19,8 @@ export function Footer() {
                 <span>SecuryBlack Native Agent Ecosystem</span>
               </h4>
               <p className="text-xs text-zinc-500 mt-1">
-                Modular, open-source Rust infrastructure agents designed to operate
-                autonomously or integrated with SecuryBlack Cloud.
+                Modular, open-source Rust infrastructure agents. Most also run
+                standalone; all connect to SecuryBlack Cloud.
               </p>
             </div>
             <a

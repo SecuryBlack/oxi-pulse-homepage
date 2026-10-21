@@ -195,7 +195,7 @@ export function ArchitectureFlow() {
           Four steps, one binary
         </h2>
         <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-          The whole agent is about a thousand lines of Rust. Read it on GitHub.
+          The whole agent is under two thousand lines of Rust. Read it on GitHub.
         </p>
       </div>
 

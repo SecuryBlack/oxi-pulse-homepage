@@ -98,7 +98,7 @@ export const ecosystemAgents: EcosystemAgent[] = [
     id: "titanvault",
     name: "TitanVault",
     role: "Backups",
-    tagline: "Scheduled backups for databases and configuration.",
+    tagline: "Scheduled PostgreSQL and file backups to S3-compatible storage.",
     url: "https://titanvault.dev",
     githubUrl: "https://github.com/securyblack/titan-vault",
     color: "#06B6D4",
