@@ -14,13 +14,13 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.477.0",
     "motion": "^12.23.11",
-    "next": "^16.3.8",
+    "next": "^16.4.6",
     "posthog-js": "^1.438.7",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.20.10",
+    "@opennextjs/cloudflare": "^1.20.17",
     "@tailwindcss/postcss": "^4.1.15",
     "@types/node": "^20.14.0",
     "@types/react": "^19.0.0",
